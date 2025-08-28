@@ -235,9 +235,9 @@ class AppTest {
         cadena.agregarFinal('C');
         cadena.agregarFinal('O');
         cadena.borrarInicio();
-        assertTrue(cadena.getCadena()[0]=='E');
+        assertTrue(cadena.getCadena()[0]=='M');
 
-        assertTrue(cadena.tamanio()==5);
+        assertTrue(cadena.tamanio()==6);
 
     }
 

@@ -29,10 +29,7 @@ public class Numerote {
     }
     public Numerote(String n) {
     	// Convertir la cadena a un array de dígitos
-        numeros = new int[n.length()];
-        for (int i = 0; i < numeros.length; i++) {
-            numeros[i] = n.charAt(i) - '0';
-        }
+        
     }
     public int getTamanio() {
     	return tamanio;
@@ -44,20 +41,12 @@ public class Numerote {
     public Numerote suma(Numerote b) {
     	// Crear un array para almacenar el resultado de la suma
     	//El tamaño dependerá de la cadena mas larga
-        int[] c = new int[Math.max(numeros.length, b.numeros.length) + 1];
-
+        
         // Llevar la cuenta del acarreo
-        int acarreo = 0;
+       
 
         // Recorrer los dígitos de ambos números de derecha a izquierda
-        for(int i=numeros.length-1,j=b.numeros.length-1,k=c.length-1;i>=0 || j>=0;i--,j--,k--) {
-        	int op1=(i>=0 ? numeros[i]:0);
-        	int op2=(j>=0 ? b.numeros[j]:0);
-        	
-        	int suma = op1+op2+acarreo;
-        	
-        	c[k]=suma%10;
-        	acarreo = suma /10;
+       
         			 	
         }
        
