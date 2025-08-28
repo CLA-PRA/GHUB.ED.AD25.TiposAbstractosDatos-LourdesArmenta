@@ -1,0 +1,257 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: testRationalAdd
+      id: testrationaladd
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testRationalAdd
+        setup-command: make compile
+        command: java -jar lib/junit-platform-console-standalone-1.5.2.jar -class-path
+          build --select-method miTest.AppTest#testRationalAdd
+        timeout: 10
+        max-score: 5
+    - name: testRationalMult
+      id: testrationalmult
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testRationalMult
+        setup-command: ''
+        command: java -jar lib/junit-platform-console-standalone-1.5.2.jar -class-path
+          build --select-method miTest.AppTest#testRationalMult
+        timeout: 10
+        max-score: 5
+    - name: testRationalEqual
+      id: testrationalequal
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testRationalEqual
+        setup-command: ''
+        command: java -jar lib/junit-platform-console-standalone-1.5.2.jar -class-path
+          build --select-method miTest.AppTest#testRationalEqual
+        timeout: 10
+        max-score: 5
+    - name: testConjuntoAñadir
+      id: testconjuntoanadir
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testConjuntoAñadir
+        setup-command: ''
+        command: java -jar lib/junit-platform-console-standalone-1.5.2.jar -class-path
+          build --select-method miTest.AppTest#testConjuntoAñadir
+        timeout: 10
+        max-score: 5
+    - name: testConjuntoRetirar
+      id: testconjuntoretirar
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testConjuntoRetirar
+        setup-command: ''
+        command: java -jar lib/junit-platform-console-standalone-1.5.2.jar -class-path
+          build --select-method miTest.AppTest#testConjuntoRetirar
+        timeout: 10
+        max-score: 5
+    - name: testConjuntoPertenece
+      id: testconjuntopertenece
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testConjuntoPertenece
+        setup-command: ''
+        command: java -jar lib/junit-platform-console-standalone-1.5.2.jar -class-path
+          build --select-method miTest.AppTest#testConjuntoPertenece
+        timeout: 10
+        max-score: 5
+    - name: testNumeroteSuma
+      id: testnumerotesuma
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testNumeroteSuma
+        setup-command: ''
+        command: java -jar lib/junit-platform-console-standalone-1.5.2.jar -class-path
+          build --select-method miTest.AppTest#testNumeroteSuma
+        timeout: 10
+        max-score: 0
+    - name: testNumeroteResta
+      id: testnumeroteresta
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testNumeroteResta
+        setup-command: ''
+        command: java -jar lib/junit-platform-console-standalone-1.5.2.jar -class-path
+          build --select-method miTest.AppTest#testNumeroteResta
+        timeout: 10
+        max-score: 0
+    - name: testMatriz
+      id: testmatriz
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testMatriz
+        setup-command: ''
+        command: java -jar lib/junit-platform-console-standalone-1.5.2.jar -class-path
+          build --select-method miTest.AppTest#testMatriz
+        timeout: 10
+        max-score: 5
+    - name: testFechaEquals
+      id: testfechaequals
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testFechaEquals
+        setup-command: ''
+        command: java -jar lib/junit-platform-console-standalone-1.5.2.jar -class-path
+          build --select-method miTest.AppTest#testFechaEquals
+        timeout: 10
+    - name: testFechaAddDias
+      id: testfechaadddias
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testFechaAddDias
+        setup-command: ''
+        command: java -jar lib/junit-platform-console-standalone-1.5.2.jar -class-path
+          build --select-method miTest.AppTest#testFechaAddDias
+        timeout: 10
+        max-score: 5
+    - name: testFechafechaToDias
+      id: testfechafechatodias
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testFechafechaToDias
+        setup-command: ''
+        command: java -jar lib/junit-platform-console-standalone-1.5.2.jar -class-path
+          build --select-method miTest.AppTest#testFechafechaToDias
+        timeout: 10
+    - name: testFechaDiasToFecha
+      id: testfechadiastofecha
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testFechaDiasToFecha
+        setup-command: ''
+        command: java -jar lib/junit-platform-console-standalone-1.5.2.jar -class-path
+          build --select-method miTest.AppTest#testFechaDiasToFecha
+        timeout: 10
+    - name: testPunto
+      id: testpunto
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testPunto
+        setup-command: ''
+        command: java -jar lib/junit-platform-console-standalone-1.5.2.jar -class-path
+          build --select-method miTest.AppTest#testPunto
+        timeout: 10
+    - name: testPuntoDistancia
+      id: testpuntodistancia
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testPuntoDistancia
+        setup-command: ''
+        command: java -jar lib/junit-platform-console-standalone-1.5.2.jar -class-path
+          build --select-method miTest.AppTest#testPuntoDistancia
+        timeout: 10
+    - name: testTriangulo
+      id: testtriangulo
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testTriangulo
+        setup-command: ''
+        command: java -jar lib/junit-platform-console-standalone-1.5.2.jar -class-path
+          build --select-method miTest.AppTest#testTriangulo
+        timeout: 10
+        max-score: 5
+    - name: testPoligono
+      id: testpoligono
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testPoligono
+        setup-command: ''
+        command: java -jar lib/junit-platform-console-standalone-1.5.2.jar -class-path
+          build --select-method miTest.AppTest#testPoligono
+        timeout: 10
+        max-score: 10
+    - name: testCadenaAgregarBorrar
+      id: testcadenaagregarborrar
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testCadenaAgregarBorrar
+        setup-command: ''
+        command: java -jar lib/junit-platform-console-standalone-1.5.2.jar -class-path
+          build --select-method miTest.AppTest#testCadenaAgregarBorrar
+        timeout: 10
+        max-score: 0
+    - name: testCadenaLlenar
+      id: testcadenallenar
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testCadenaLlenar
+        setup-command: ''
+        command: java -jar lib/junit-platform-console-standalone-1.5.2.jar -class-path
+          build --select-method miTest.AppTest#testCadenaLlenar
+        timeout: 10
+        max-score: 0
+    - name: testCadenaInvertir
+      id: testcadenainvertir
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testCadenaInvertir
+        setup-command: ''
+        command: java -jar lib/junit-platform-console-standalone-1.5.2.jar -class-path
+          build --select-method miTest.AppTest#testCadenaInvertir
+        timeout: 10
+        max-score: 0
+    - name: testPersona
+      id: testpersona
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testPersona
+        setup-command: ''
+        command: java -jar lib/junit-platform-console-standalone-1.5.2.jar -class-path
+          build --select-method miTest.AppTest#testPersona
+        timeout: 10
+        max-score: 5
+    - name: testCheque_Cheque
+      id: testcheque_cheque
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: testCheque_Cheque
+        setup-command: ''
+        command: java -jar lib/junit-platform-console-standalone-1.5.2.jar -class-path
+          build --select-method miTest.AppTest#testCuenta_Cheque
+        timeout: 10
+        max-score: 5
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        TESTRATIONALADD_RESULTS: "${{steps.testrationaladd.outputs.result}}"
+        TESTRATIONALMULT_RESULTS: "${{steps.testrationalmult.outputs.result}}"
+        TESTRATIONALEQUAL_RESULTS: "${{steps.testrationalequal.outputs.result}}"
+        TESTCONJUNTOANADIR_RESULTS: "${{steps.testconjuntoanadir.outputs.result}}"
+        TESTCONJUNTORETIRAR_RESULTS: "${{steps.testconjuntoretirar.outputs.result}}"
+        TESTCONJUNTOPERTENECE_RESULTS: "${{steps.testconjuntopertenece.outputs.result}}"
+        TESTNUMEROTESUMA_RESULTS: "${{steps.testnumerotesuma.outputs.result}}"
+        TESTNUMEROTERESTA_RESULTS: "${{steps.testnumeroteresta.outputs.result}}"
+        TESTMATRIZ_RESULTS: "${{steps.testmatriz.outputs.result}}"
+        TESTFECHAEQUALS_RESULTS: "${{steps.testfechaequals.outputs.result}}"
+        TESTFECHAADDDIAS_RESULTS: "${{steps.testfechaadddias.outputs.result}}"
+        TESTFECHAFECHATODIAS_RESULTS: "${{steps.testfechafechatodias.outputs.result}}"
+        TESTFECHADIASTOFECHA_RESULTS: "${{steps.testfechadiastofecha.outputs.result}}"
+        TESTPUNTO_RESULTS: "${{steps.testpunto.outputs.result}}"
+        TESTPUNTODISTANCIA_RESULTS: "${{steps.testpuntodistancia.outputs.result}}"
+        TESTTRIANGULO_RESULTS: "${{steps.testtriangulo.outputs.result}}"
+        TESTPOLIGONO_RESULTS: "${{steps.testpoligono.outputs.result}}"
+        TESTCADENAAGREGARBORRAR_RESULTS: "${{steps.testcadenaagregarborrar.outputs.result}}"
+        TESTCADENALLENAR_RESULTS: "${{steps.testcadenallenar.outputs.result}}"
+        TESTCADENAINVERTIR_RESULTS: "${{steps.testcadenainvertir.outputs.result}}"
+        TESTPERSONA_RESULTS: "${{steps.testpersona.outputs.result}}"
+        TESTCHEQUE_CHEQUE_RESULTS: "${{steps.testcheque_cheque.outputs.result}}"
+      with:
+        runners: testrationaladd,testrationalmult,testrationalequal,testconjuntoanadir,testconjuntoretirar,testconjuntopertenece,testnumerotesuma,testnumeroteresta,testmatriz,testfechaequals,testfechaadddias,testfechafechatodias,testfechadiastofecha,testpunto,testpuntodistancia,testtriangulo,testpoligono,testcadenaagregarborrar,testcadenallenar,testcadenainvertir,testpersona,testcheque_cheque
